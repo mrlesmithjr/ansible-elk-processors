@@ -47,6 +47,7 @@ logstash_configs:
   - processor_240_filters_ssh
   - processor_241_filters_dhcp
   - processor_250_filters_snort
+  - processor_255_filters_suricata
   - processor_260_filters_citrix_netscaler
   - processor_270_filters_apache
   - processor_280_filters_nginx
