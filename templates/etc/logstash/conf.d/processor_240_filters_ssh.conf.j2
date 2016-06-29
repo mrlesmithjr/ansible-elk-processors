@@ -6,8 +6,8 @@ filter {
         grok {
           break_on_match => false
           match => [
-            "message", "invalid user %{DATA:UserName} from %{IP:src_ip}"
-#            "message", "for %{DATA:UserName} from %{IP:src_ip}"
+            "message", "invalid user %{DATA:UserName} from %{IP:src_ip}",
+            "message", "for %{DATA:UserName} from %{IP:src_ip} %{GREEDYDATA}"
           ]
         }
         mutate {
@@ -17,7 +17,7 @@ filter {
       if "Accepted" in [message] {
         grok {
           match => [
-            "message", "for %{DATA:UserName} from %{IP:src_ip}"
+            "message", "for %{DATA:UserName} from %{IP:src_ip} %{GREEDYDATA}"
           ]
         }
         mutate {
